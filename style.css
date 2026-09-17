@@ -1,0 +1,2261 @@
+/* ============================================================
+   BASIC SETUP
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background: #fffaf3;
+    color: #625952;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+    background: #dcd7ef;
+    color: #5d526d;
+}
+
+
+/* ============================================================
+   INTRO
+============================================================ */
+
+#intro {
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 15% 20%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 65% 75%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(#dce9f3 0%, #eef3f1 55%, #e4ecd9 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-card {
+    width: min(560px, 92vw);
+
+    background: rgba(255, 252, 247, 0.95);
+
+    text-align: center;
+
+    padding:
+        clamp(40px, 7vw, 60px)
+        clamp(25px, 6vw, 45px);
+
+    border: 2px solid #d8cec4;
+    border-radius: 28px;
+
+    box-shadow:
+        8px 8px 0 #cbd9d0,
+        0 18px 50px rgba(91, 77, 67, 0.12);
+
+    position: relative;
+    z-index: 5;
+
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-0.5deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+}
+
+.tiny-heading {
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #958980;
+}
+
+.birthday-icon {
+    margin: 18px 0 8px;
+    font-size: clamp(45px, 8vw, 60px);
+}
+
+.intro-card h1 {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(55px, 10vw, 90px);
+    font-weight: 700;
+    line-height: 0.82;
+    color: #685d57;
+}
+
+.intro-card h1 span {
+    color: #8981aa;
+}
+
+.intro-message {
+    margin-top: 30px;
+    line-height: 1.8;
+    color: #776e68;
+}
+
+#openButton {
+    margin-top: 30px;
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 100px;
+
+    background: #dce6ef;
+    color: #5e5956;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 0 #bdcbd6;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+#openButton:hover {
+    transform: translateY(-3px);
+    background: #e2dff0;
+    box-shadow: 0 8px 0 #c6bfd8;
+}
+
+#openButton:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #bdcbd6;
+}
+
+.tiny-note {
+    margin-top: 23px;
+    font-family: "Gaegu", cursive;
+    font-size: 18px;
+    color: #998c83;
+}
+
+.cloud {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(90px, 12vw, 150px);
+    pointer-events: none;
+}
+
+.cloud-one {
+    left: 5%;
+    top: 8%;
+}
+
+.cloud-two {
+    right: 4%;
+    top: 20%;
+    font-size: clamp(120px, 15vw, 180px);
+}
+
+.intro-bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+    font-size: 24px;
+
+    color: rgba(104, 93, 87, 0.45);
+}
+
+
+/* ============================================================
+   MAIN WEBSITE
+============================================================ */
+
+#birthdaySite {
+    display: none;
+    min-height: 100vh;
+
+    background-color: #fffaf3;
+    background-image: radial-gradient(#e6ddd3 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+.site-header {
+    min-height: 70px;
+    padding: 15px 7%;
+
+    background: rgba(255, 250, 243, 0.93);
+    border-bottom: 1px dashed #cfc3b8;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(8px);
+}
+
+.site-header p {
+    font-family: "Gaegu", cursive;
+    font-size: 22px;
+    color: #655b55;
+}
+
+.site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.site-header a {
+    color: #776d67;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.site-header a:hover {
+    color: #8c83ad;
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.scrapbook-hero {
+    min-height: 720px;
+    width: min(1100px, 92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(220px, 340px);
+
+    align-items: center;
+    gap: clamp(40px, 7vw, 90px);
+
+    padding:
+        clamp(75px, 9vw, 110px)
+        20px;
+
+    position: relative;
+}
+
+.hero-text {
+    max-width: 500px;
+    min-width: 0;
+}
+
+.scribble {
+    margin-bottom: 15px;
+    font-family: "Gaegu", cursive;
+    font-size: 23px;
+    color: #9c7f79;
+    transform: rotate(-3deg);
+}
+
+.hero-text h2 {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(60px, 8vw, 100px);
+    line-height: 0.76;
+    color: #665952;
+}
+
+.hero-text h2 span {
+    color: #8980a9;
+}
+
+.hero-description {
+    max-width: 440px;
+    margin-top: 30px;
+    line-height: 1.8;
+    color: #706761;
+}
+
+
+/* ============================================================
+   POLAROID
+============================================================ */
+
+.polaroid {
+    max-width: 100%;
+    padding: 13px 13px 25px;
+
+    background: #ffffff;
+    border: 1px solid #eee6dd;
+
+    box-shadow:
+        5px 8px 18px rgba(70, 55, 45, 0.14);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.035);
+
+    box-shadow:
+        7px 12px 24px rgba(70, 55, 45, 0.17);
+}
+
+.polaroid p {
+    margin-top: 12px;
+    text-align: center;
+    font-family: "Gaegu", cursive;
+    font-size: 18px;
+    color: #6d625c;
+}
+
+.hero-photo {
+    width: clamp(220px, 27vw, 320px);
+    justify-self: center;
+    transform: rotate(4deg);
+}
+
+.photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dce9f1,
+            #e7e3ef,
+            #f2dfd9
+        );
+
+    color: #897d76;
+    font-family: "Gaegu", cursive;
+    font-size: 22px;
+}
+
+.memory-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero-image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.doodle-heart {
+    position: absolute;
+    right: 2%;
+    bottom: 18%;
+
+    font-family: "Gaegu", cursive;
+    font-size: 70px;
+    color: #cda5a2;
+
+    transform: rotate(15deg);
+
+    pointer-events: none;
+}
+
+.doodle-star {
+    position: absolute;
+    left: 47%;
+    top: 12%;
+
+    font-size: 42px;
+    color: #cdbd83;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   GENERAL SECTIONS
+============================================================ */
+
+.section {
+    width: min(950px, 92%);
+    margin: auto;
+
+    padding:
+        clamp(80px, 10vw, 115px)
+        clamp(15px, 4vw, 35px);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 40px;
+}
+
+.section-title > span {
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    background: #dce8f1;
+
+    border-radius: 50%;
+
+    font-family: "Gaegu", cursive;
+    font-size: 20px;
+
+    color: #655c57;
+}
+
+.section-title h2 {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1;
+    color: #6b5f58;
+}
+
+.section-subtitle {
+    margin-top: -28px;
+    margin-bottom: 50px;
+
+    font-family: "Gaegu", cursive;
+    font-size: 21px;
+
+    color: #8d8078;
+}
+
+
+/* ============================================================
+   PLAYER PROFILE
+============================================================ */
+
+.player-section {
+    width: min(1000px, 92%);
+}
+
+.player-profile {
+    width: min(850px, 100%);
+    margin: 0 auto;
+
+    padding: clamp(28px, 5vw, 45px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(244, 246, 250, 0.96)
+        );
+
+    border: 2px solid #d9d6df;
+    border-radius: 28px;
+
+    box-shadow:
+        8px 9px 0 #dfe8ee,
+        16px 18px 0 #e5e1ef;
+
+    position: relative;
+}
+
+.player-profile::before {
+    content: "PLAYER DATA";
+
+    position: absolute;
+    top: 15px;
+    right: 22px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #b3a9a2;
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+
+    gap: clamp(20px, 5vw, 40px);
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px dashed #cec5bd;
+}
+
+.player-avatar {
+    flex: 0 0 clamp(105px, 17vw, 145px);
+    width: clamp(105px, 17vw, 145px);
+}
+
+.avatar-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbe8f0,
+            #e5e0ef
+        );
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(40px, 7vw, 60px);
+    font-weight: 700;
+
+    color: #706886;
+}
+
+.avatar-placeholder span {
+    margin-top: 4px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    color: #8c8295;
+}
+
+.player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-label,
+.stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #9d918a;
+}
+
+.player-info h3 {
+    margin: 3px 0 20px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(42px, 7vw, 65px);
+    line-height: 1;
+
+    color: #665b55;
+}
+
+.level-text {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #827875;
+}
+
+.xp-bar {
+    width: 100%;
+    height: 13px;
+
+    overflow: hidden;
+
+    background: #ece7e3;
+
+    border-radius: 100px;
+}
+
+.xp-fill {
+    width: 88%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a9bbc9,
+            #aaa1c6
+        );
+
+    border-radius: inherit;
+}
+
+.stat-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-top: 30px;
+}
+
+.stat-card {
+    min-width: 0;
+
+    padding: 20px;
+
+    background: #fffaf5;
+
+    border: 1px solid #e5ddd5;
+    border-radius: 16px;
+}
+
+.stat-card:nth-child(2n) {
+    background: #f7f5fb;
+}
+
+.stat-value {
+    margin-top: 6px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(21px, 3vw, 26px);
+
+    color: #655c57;
+
+    overflow-wrap: break-word;
+}
+
+.achievements {
+    margin-top: 35px;
+}
+
+.achievement-heading {
+    margin-bottom: 15px;
+
+    font-family: "Gaegu", cursive;
+    font-size: 24px;
+
+    color: #71655f;
+}
+
+.achievement-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.achievement {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 16px;
+
+    background: #edf2f4;
+
+    border-radius: 14px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #6d6662;
+}
+
+.achievement:nth-child(even) {
+    background: #f0edf5;
+}
+
+.achievement span {
+    font-size: 20px;
+}
+
+
+/* ============================================================
+   VIDEO ARCHIVE
+============================================================ */
+
+.clips-section {
+    width: min(1000px, 94%);
+}
+
+.video-grid {
+    width: min(900px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: clamp(50px, 8vw, 75px);
+}
+
+.video-card {
+    width: 100%;
+    margin: 0 auto;
+
+    padding:
+        clamp(10px, 2vw, 16px)
+        clamp(10px, 2vw, 16px)
+        clamp(20px, 3vw, 28px);
+
+    background: #fff;
+
+    border: 1px solid #e7ded5;
+
+    box-shadow:
+        7px 10px 22px rgba(70, 55, 45, 0.14);
+
+    transform: rotate(-0.5deg);
+
+    position: relative;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.video-card:nth-child(even) {
+    transform: rotate(0.5deg);
+}
+
+.video-card:hover {
+    transform: rotate(0deg) translateY(-4px);
+
+    box-shadow:
+        9px 14px 28px rgba(70, 55, 45, 0.17);
+}
+
+.video-card::before {
+    content: "";
+
+    position: absolute;
+    top: -14px;
+    left: 50%;
+
+    width: clamp(75px, 12vw, 115px);
+    height: 28px;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    background: rgba(218, 215, 239, 0.72);
+
+    z-index: 3;
+}
+
+.video-card:nth-child(even)::before {
+    background: rgba(207, 224, 214, 0.75);
+
+    transform:
+        translateX(-50%)
+        rotate(3deg);
+}
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #2f2c2c;
+
+    border: 1px solid #eee6df;
+}
+
+.memory-video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #2f2c2c;
+}
+
+.clip-number {
+    margin-top: 18px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    color: #a99c93;
+}
+
+.video-caption {
+    width: min(650px, 95%);
+    margin: 7px auto 0;
+
+    text-align: center;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(20px, 3vw, 25px);
+
+    color: #70645e;
+}
+
+
+/* ============================================================
+   VENDING MACHINE
+============================================================ */
+
+.vending-section {
+    width: min(1000px, 94%);
+}
+
+.vending-machine {
+    width: min(720px, 100%);
+    margin: 0 auto;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9caec1,
+            #8498ad
+        );
+
+    border: 5px solid #718396;
+    border-radius: 35px;
+
+    box-shadow:
+        10px 12px 0 #d8d1ca,
+        0 20px 35px rgba(65, 58, 54, 0.16);
+
+    position: relative;
+}
+
+.machine-top {
+    padding: 15px 12px 17px;
+
+    text-align: center;
+
+    background: #f4efe9;
+
+    border: 3px solid #718396;
+    border-radius: 18px 18px 10px 10px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(19px, 4vw, 28px);
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #665d59;
+}
+
+.machine-body {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        145px;
+
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+.vending-window {
+    min-width: 0;
+
+    padding: 22px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eaf1f4,
+            #dce6ec
+        );
+
+    border: 5px solid #657789;
+    border-radius: 16px;
+
+    box-shadow:
+        inset 0 0 25px rgba(87, 104, 119, 0.15);
+}
+
+.vending-shelf {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: clamp(7px, 2vw, 15px);
+
+    align-items: end;
+}
+
+.vending-item {
+    min-width: 0;
+
+    padding: 10px 5px 8px;
+
+    border: none;
+    border-radius: 12px 12px 5px 5px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+}
+
+.vending-item:hover {
+    transform: translateY(-5px);
+
+    background: #fff;
+
+    box-shadow:
+        0 5px 10px rgba(70, 62, 57, 0.1);
+}
+
+.vending-item:active {
+    transform: translateY(2px);
+}
+
+.vending-item.dispensing {
+    animation: itemShake 0.45s ease;
+}
+
+@keyframes itemShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateX(6px) rotate(3deg);
+    }
+
+    75% {
+        transform: translateX(-4px) rotate(-2deg);
+    }
+}
+
+.item-emoji {
+    display: block;
+
+    font-size: clamp(35px, 7vw, 57px);
+
+    filter:
+        drop-shadow(
+            0 4px 2px
+            rgba(75, 65, 58, 0.12)
+        );
+}
+
+.item-code {
+    margin-top: 7px;
+
+    padding: 3px 8px;
+
+    background: #6f8091;
+
+    border-radius: 100px;
+
+    color: #fff;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.shelf-line {
+    height: 7px;
+
+    margin: 9px -6px 14px;
+
+    background: #8c9ba8;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 3px 0 rgba(78, 90, 100, 0.2);
+}
+
+
+/* MACHINE CONTROLS */
+
+.vending-controls {
+    padding: 15px 10px;
+
+    background: #788b9e;
+
+    border: 4px solid #657789;
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 17px;
+}
+
+.machine-screen {
+    min-height: 100px;
+
+    padding: 12px 8px;
+
+    background: #4e5a60;
+
+    border: 3px inset #657079;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #dcebd9;
+
+    font-family: monospace;
+
+    overflow: hidden;
+}
+
+.screen-small {
+    margin-bottom: 7px;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+
+    opacity: 0.75;
+}
+
+#machineMessage {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+.coin-slot {
+    text-align: center;
+
+    color: #edf0f2;
+
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.coin-line {
+    width: 12px;
+    height: 38px;
+
+    margin: 0 auto 6px;
+
+    background: #414b51;
+
+    border-radius: 10px;
+
+    box-shadow:
+        inset 2px 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.machine-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+}
+
+.machine-buttons span {
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+    place-items: center;
+
+    background: #f5f0ea;
+
+    border: 2px solid #657789;
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #655c57;
+
+    box-shadow:
+        0 3px 0 #596a79;
+}
+
+.machine-heart {
+    text-align: center;
+
+    font-family: "Gaegu", cursive;
+    font-size: 40px;
+
+    color: #e9d2d3;
+}
+
+
+/* DISPENSING SLOT */
+
+.vending-bottom {
+    margin-top: 15px;
+
+    padding: 12px 18px 17px;
+
+    background: #8295a7;
+
+    border: 4px solid #657789;
+    border-radius: 13px 13px 22px 22px;
+
+    text-align: center;
+}
+
+.dispense-label {
+    margin-bottom: 7px;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #edf1f3;
+}
+
+.dispense-slot {
+    width: min(330px, 90%);
+    height: 90px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            #3e474c,
+            #252c30
+        );
+
+    border: 5px inset #677784;
+    border-radius: 10px 10px 18px 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.dispense-slot::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 25px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.dispensed-item {
+    font-size: 48px;
+
+    transform: translateY(-100px);
+    opacity: 0;
+
+    transition:
+        transform 0.55s cubic-bezier(.25, 1.5, .5, 1),
+        opacity 0.25s;
+}
+
+.dispensed-item.drop {
+    transform: translateY(5px);
+    opacity: 1;
+}
+
+
+/* VENDING REWARD */
+
+.vending-reward {
+    width: min(650px, 100%);
+
+    margin: 45px auto 0;
+
+    padding:
+        clamp(30px, 6vw, 45px)
+        clamp(20px, 5vw, 35px);
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 2px dashed #d4c9bf;
+    border-radius: 25px;
+
+    box-shadow:
+        7px 8px 0 #e4e9df;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px)
+        scale(0.98);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s,
+        transform 0.4s;
+}
+
+.vending-reward.show {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+.reward-rarity {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    background: #edf1f4;
+
+    border-radius: 100px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #7c7470;
+}
+
+.reward-rarity.rare {
+    background: #e4e9f4;
+    color: #716d91;
+}
+
+.reward-rarity.epic {
+    background: #eee6f2;
+    color: #8a6e91;
+}
+
+.reward-rarity.legendary {
+    background: #f2e9c9;
+    color: #897536;
+}
+
+.reward-emoji {
+    margin: 12px 0 5px;
+
+    font-size: clamp(55px, 10vw, 80px);
+}
+
+.vending-reward h3 {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(32px, 6vw, 46px);
+
+    color: #6b605a;
+}
+
+#rewardText {
+    width: min(500px, 100%);
+
+    margin: 10px auto 0;
+
+    line-height: 1.7;
+
+    color: #756b65;
+}
+
+
+/* ============================================================
+   PRESENTS
+============================================================ */
+
+.present-section {
+    width: min(1050px, 94%);
+}
+
+.present-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: clamp(20px, 4vw, 35px);
+}
+
+.present-box {
+    width: 100%;
+    min-width: 0;
+
+    padding:
+        clamp(30px, 5vw, 45px)
+        20px;
+
+    border: 2px solid rgba(110, 100, 95, 0.12);
+    border-radius: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow:
+        6px 7px 0 rgba(110, 100, 95, 0.12);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        filter 0.25s;
+}
+
+.present-blue {
+    background: #dfeaf1;
+}
+
+.present-lavender {
+    background: #e6e1ef;
+}
+
+.present-green {
+    background: #e1eadb;
+}
+
+.present-box:hover {
+    transform:
+        translateY(-7px)
+        rotate(-1deg);
+
+    box-shadow:
+        8px 12px 0 rgba(110, 100, 95, 0.11);
+
+    filter: brightness(1.02);
+}
+
+.present-box:nth-child(2):hover {
+    transform:
+        translateY(-7px)
+        rotate(1deg);
+}
+
+.present-box.opened {
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    outline:
+        3px dashed rgba(124, 112, 145, 0.35);
+}
+
+.gift-emoji {
+    display: block;
+
+    font-size: clamp(60px, 10vw, 90px);
+
+    transition: transform 0.3s;
+}
+
+.present-box:hover .gift-emoji {
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+}
+
+.present-label {
+    margin-top: 17px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(25px, 4vw, 31px);
+    font-weight: 700;
+
+    color: #675d58;
+}
+
+.present-hint {
+    margin-top: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #958a83;
+}
+
+.present-reveal {
+    width: min(700px, 100%);
+
+    margin:
+        clamp(40px, 7vw, 65px)
+        auto 0;
+
+    padding:
+        clamp(35px, 6vw, 55px)
+        clamp(20px, 5vw, 40px);
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 2px dashed #d3c9c0;
+    border-radius: 25px;
+
+    box-shadow:
+        7px 8px 0 #e8e2ef;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px)
+        scale(0.97);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s,
+        transform 0.4s;
+}
+
+.present-reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+.reveal-tiny {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    color: #a0938b;
+}
+
+.reveal-emoji {
+    margin: 10px 0;
+    font-size: clamp(55px, 10vw, 80px);
+}
+
+.present-reveal h3 {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(34px, 6vw, 48px);
+    color: #6c615b;
+}
+
+#revealText {
+    width: min(520px, 100%);
+    margin: 12px auto 0;
+
+    line-height: 1.7;
+    color: #766c66;
+}
+
+
+/* ============================================================
+   LETTER
+============================================================ */
+
+.letter-paper {
+    width: 100%;
+
+    background:
+        repeating-linear-gradient(
+            #fffdf8,
+            #fffdf8 31px,
+            #e8e2db 32px
+        );
+
+    padding:
+        clamp(45px, 7vw, 70px)
+        clamp(25px, 7vw, 65px);
+
+    border: 1px solid #e2d9cf;
+
+    box-shadow:
+        8px 10px 0 #e1e9dc;
+
+    position: relative;
+
+    transform: rotate(-0.5deg);
+
+    line-height: 2;
+
+    overflow-wrap: break-word;
+}
+
+.tape {
+    width: 110px;
+    height: 32px;
+
+    background: rgba(213, 211, 235, 0.72);
+
+    position: absolute;
+
+    transform: rotate(-8deg);
+}
+
+.tape-letter {
+    top: -15px;
+    left: calc(50% - 55px);
+}
+
+.letter-date {
+    text-align: right;
+
+    font-family: "Gaegu", cursive;
+    font-size: 19px;
+}
+
+.letter-paper h3 {
+    margin-bottom: 15px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(30px, 5vw, 37px);
+
+    color: #655a54;
+}
+
+.letter-paper p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-family: "Gaegu", cursive;
+    font-size: 26px;
+
+    color: #8a7772;
+}
+
+
+/* ============================================================
+   CAKE
+============================================================ */
+
+.birthday-section {
+    width: min(850px, 92%);
+}
+
+.birthday-card {
+    width: 100%;
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 2px solid #e2d9d0;
+    border-radius: 30px;
+
+    padding:
+        clamp(55px, 8vw, 80px)
+        clamp(20px, 6vw, 50px);
+
+    box-shadow:
+        9px 9px 0 #dfe8ee,
+        18px 18px 0 #e4e0ee;
+}
+
+.birthday-card h2 {
+    margin: 12px 0 10px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(50px, 8vw, 80px);
+
+    color: #7f769f;
+}
+
+#cake {
+    width: min(300px, 90%);
+
+    margin:
+        clamp(30px, 6vw, 50px)
+        auto 25px;
+}
+
+.candles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: clamp(12px, 5vw, 25px);
+
+    margin-bottom: -12px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.candle {
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 26px;
+
+    transition: transform 0.2s;
+}
+
+.candle:hover {
+    transform: translateY(-5px);
+}
+
+.flame {
+    display: block;
+
+    font-size: 24px;
+
+    transition:
+        opacity 0.4s,
+        transform 0.4s;
+}
+
+.candle-stick {
+    font-size: 35px;
+    line-height: 0.8;
+
+    color: #9caec3;
+}
+
+.cake-emoji {
+    font-size: clamp(90px, 18vw, 140px);
+    line-height: 1;
+}
+
+#wishMessage {
+    margin-top: 15px;
+
+    font-family: "Gaegu", cursive;
+    font-size: 21px;
+
+    color: #897d76;
+}
+
+
+/* ============================================================
+   FINAL
+============================================================ */
+
+.final-section {
+    padding-top:
+        clamp(110px, 13vw, 150px);
+
+    padding-bottom:
+        clamp(110px, 13vw, 150px);
+}
+
+.final-card {
+    width: 100%;
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 2px solid #e2d8cf;
+    border-radius: 30px;
+
+    padding:
+        clamp(60px, 9vw, 85px)
+        clamp(25px, 6vw, 45px);
+
+    box-shadow:
+        9px 9px 0 #e3dfef,
+        18px 18px 0 #dce8e1;
+}
+
+.final-card h2 {
+    margin: 15px 0 25px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(50px, 8vw, 85px);
+    line-height: 0.9;
+
+    color: #796f97;
+}
+
+.final-card > p {
+    width: min(550px, 100%);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-heart {
+    margin: 25px 0 10px;
+
+    font-family: "Gaegu", cursive;
+    font-size: clamp(70px, 12vw, 110px);
+    line-height: 1;
+
+    color: #c99e9d;
+}
+
+.big-love {
+    font-family: "Gaegu", cursive;
+    font-size: clamp(30px, 5vw, 40px);
+
+    color: #9c7775;
+}
+
+.ending {
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    color: #a3978f;
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+footer {
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: #e9e5f0;
+
+    font-family: "Gaegu", cursive;
+    font-size: 19px;
+
+    color: #6e6460;
+}
+
+
+/* ============================================================
+   FLOATING DECORATIONS
+============================================================ */
+
+.floating-decoration {
+    position: fixed;
+
+    z-index: 200;
+
+    pointer-events: none;
+
+    font-size: 25px;
+
+    opacity: 0.45;
+}
+
+.star-one {
+    top: 13%;
+    left: 3%;
+}
+
+.star-two {
+    top: 35%;
+    right: 3%;
+}
+
+.star-three {
+    bottom: 8%;
+    left: 4%;
+}
+
+.star-four {
+    top: 70%;
+    right: 5%;
+}
+
+
+/* ============================================================
+   TABLETS
+============================================================ */
+
+@media (max-width: 900px) {
+
+    .scrapbook-hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        justify-items: center;
+
+        min-height: auto;
+    }
+
+    .hero-text {
+        max-width: 620px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-photo {
+        width: min(320px, 70vw);
+    }
+
+    .doodle-star {
+        left: 8%;
+        top: 8%;
+    }
+}
+
+
+/* ============================================================
+   PHONES
+============================================================ */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        flex-direction: column;
+
+        gap: 9px;
+
+        padding: 12px 15px;
+    }
+
+    .site-header p {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .site-header nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 8px 13px;
+    }
+
+    .site-header a {
+        font-size: 11px;
+    }
+
+    #intro {
+        padding: 20px;
+    }
+
+    .intro-card {
+        width: min(430px, 94vw);
+    }
+
+    .cloud {
+        opacity: 0.55;
+    }
+
+    .scrapbook-hero {
+        width: 94%;
+
+        padding:
+            75px 15px
+            90px;
+    }
+
+    .hero-text h2 {
+        font-size:
+            clamp(55px, 18vw, 75px);
+    }
+
+    .hero-photo {
+        width: min(280px, 82vw);
+    }
+
+    .doodle-heart {
+        font-size: 50px;
+
+        bottom: 5%;
+    }
+
+    .section {
+        width: 94%;
+
+        padding:
+            80px 15px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .section-title > span {
+        flex-basis: 38px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+    .section-title h2 {
+        font-size:
+            clamp(36px, 11vw, 48px);
+    }
+
+
+    /* PLAYER */
+
+    .player-profile {
+        padding:
+            35px 20px;
+    }
+
+    .profile-top {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .player-avatar {
+        width: 120px;
+        flex-basis: 120px;
+    }
+
+    .player-info {
+        width: 100%;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* VIDEOS */
+
+    .clips-section {
+        width: 96%;
+    }
+
+    .video-grid {
+        width: 100%;
+        gap: 50px;
+    }
+
+    .video-card {
+        padding:
+            9px 9px 20px;
+    }
+
+
+    /* VENDING MACHINE */
+
+    .vending-section {
+        width: 98%;
+    }
+
+    .vending-machine {
+        padding: 10px;
+
+        border-width: 4px;
+
+        border-radius: 25px;
+    }
+
+    .machine-body {
+        grid-template-columns:
+            minmax(0, 1fr)
+            95px;
+
+        gap: 7px;
+    }
+
+    .vending-window {
+        padding:
+            15px 7px;
+
+        border-width: 3px;
+    }
+
+    .vending-shelf {
+        gap: 4px;
+    }
+
+    .vending-item {
+        padding:
+            8px 2px 6px;
+    }
+
+    .item-emoji {
+        font-size:
+            clamp(29px, 10vw, 43px);
+    }
+
+    .item-code {
+        padding:
+            2px 6px;
+
+        font-size: 7px;
+    }
+
+    .shelf-line {
+        height: 5px;
+
+        margin:
+            7px -3px
+            10px;
+    }
+
+    .vending-controls {
+        padding:
+            9px 5px;
+
+        gap: 12px;
+
+        border-width: 3px;
+    }
+
+    .machine-screen {
+        min-height: 78px;
+
+        padding:
+            8px 3px;
+    }
+
+    #machineMessage {
+        font-size: 9px;
+    }
+
+    .screen-small {
+        font-size: 6px;
+    }
+
+    .coin-slot span {
+        font-size: 5px;
+    }
+
+    .coin-line {
+        height: 27px;
+    }
+
+    .machine-buttons {
+        gap: 4px;
+    }
+
+    .machine-buttons span {
+        font-size: 8px;
+    }
+
+    .machine-heart {
+        font-size: 28px;
+    }
+
+    .dispense-slot {
+        height: 75px;
+    }
+
+    .dispensed-item {
+        font-size: 40px;
+    }
+
+
+    /* PRESENTS */
+
+    .present-grid {
+        grid-template-columns: 1fr;
+
+        width: min(390px, 100%);
+
+        margin: 0 auto;
+
+        gap: 25px;
+    }
+
+    .present-box {
+        padding:
+            30px 20px;
+    }
+
+
+    /* LETTER */
+
+    .letter-paper {
+        transform: none;
+
+        box-shadow:
+            6px 7px 0 #e1e9dc;
+    }
+
+    .letter-date {
+        text-align: left;
+
+        margin-bottom: 15px;
+    }
+
+
+    /* FINAL */
+
+    .final-card {
+        box-shadow:
+            6px 6px 0 #e3dfef,
+            12px 12px 0 #dce8e1;
+    }
+
+    .floating-decoration {
+        font-size: 18px;
+
+        opacity: 0.3;
+    }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+============================================================ */
+
+@media (max-width: 390px) {
+
+    .intro-card {
+        padding:
+            38px 20px;
+    }
+
+    #openButton {
+        width: 100%;
+    }
+
+    .site-header nav {
+        gap:
+            7px 10px;
+    }
+
+    .hero-text h2 {
+        font-size: 54px;
+    }
+
+    .section {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .clips-section {
+        width: 98%;
+    }
+
+    .video-card {
+        padding:
+            7px 7px 18px;
+    }
+
+    .player-profile {
+        padding:
+            32px 15px;
+    }
+
+    .machine-body {
+        grid-template-columns:
+            minmax(0, 1fr)
+            82px;
+    }
+
+    .item-emoji {
+        font-size: 28px;
+    }
+
+    .machine-top {
+        font-size: 18px;
+    }
+
+    .letter-paper {
+        padding:
+            45px 20px;
+    }
+
+    .birthday-card {
+        padding:
+            55px 18px;
+    }
+}
